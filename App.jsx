@@ -664,7 +664,7 @@ export default function App() {
           onClick={() => tog("res")}
           color="#6B5B95"
           label="📋 예약 확정 사항"
-          sub={`₩${BK.totalKRW.toLocaleString()} 확정`}
+          sub={`₩${(BK.totalKRW + tourKRW).toLocaleString()} 확정`}
         />
 
         {panel === "res" && (
