@@ -12,7 +12,7 @@ const BK = {
   checkOut: "4/4 (토) 11:00",
   nights: 3,
   refundBefore: "3/31",
-  hotelConfirm: "20260320140853457",
+  hotelConfirm: "CONFIRMED",
   flightOut: "ICN 13:15 → OKA 15:45",
   flightOutFlight: "7C 1801",
   flightOutDuration: "2시간 30분",
@@ -22,17 +22,17 @@ const BK = {
   flightReturnDuration: "2시간 20분",
   flightReturnDate: "4/4 (토)",
   airline: "제주항공 (Jeju Air)",
-  airlineConfirm: "MI1Z8R",
+  airlineConfirm: "CONFIRMED",
   carryOn: "10kg",
   checked: "15kg",
   cancelFee: 120000,
   changeFee: 40000,
-  expediaItinerary: "73400758673205",
+  expediaItinerary: "CONFIRMED",
   packageKRW: 1662334,
   taxKRW: 282606,
   totalKRW: 1944940,
   perPersonKRW: 648313,
-  payMethod: "MasterCard 9049",
+  payMethod: "MasterCard ****",
   paidDate: "2026.3.20",
   rewardsPoints: 5837,
   station: "아사히바시역(旭橋駅) 도보 3분",
@@ -410,7 +410,7 @@ export default function App() {
             lineHeight: 1.7,
           }}
         >
-          4.1(수)~4.4(토) 3박4일 · 형 + 은재 + 어머니
+          4.1(수)~4.4(토) 3박4일 · 가족 여행
           <br />
           <span
             style={{
