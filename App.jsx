@@ -395,46 +395,55 @@ const ACTUAL_ITINERARY = [
 
 const POST_TRIP_REVIEWS = [
   {
+    icon: "🔍",
     title: "리서치 세부사항",
     content:
       "리얼월드 변수 및 데이터 반영이 필수인 관계로 현장 리서치는 불가피, 다만 터미널 버스 이용 방법 등 더 세부적으로 리서치 했으면 현장 리서치 피로도가 덜 했을 것. Gemini 가이드와 실제 현장 간의 차이는 가짜뉴스 수준으로 상당함.",
   },
   {
+    icon: "🚩",
     title: "이정표",
     content:
       "큰틀 마련 기여했으나 실행력 과대평가로 일부 일정 삭제. 예산은 오히려 남아서 과소비 없었음. 딱 맞추기보다 쿠션 활용해야함.",
   },
   {
+    icon: "🎒",
     title: "소지품",
     content:
       "옷은 최소로 챙겨 한 벌 당 이틀 정도로 적당히 불편할 정도로 딱 맞춰 공간 확보. 우비는 우천 시에 한 번 사용. 핸드크림, 파이프 담배, 샌들은 전혀 활용하지 못하였으며 백팩에 불쾌한 담배냄새. 캐리어 소지로 돌아갈 때 기념품 수납 수월. 수영복 없어 호텔 인피니티풀 참여 못함.",
   },
   {
+    icon: "🛂",
     title: "유심 활성화",
     content:
       "유심 미리 인천에서 활성화 안해서 입국 심사 시 곤란해짐. 나하 공항 와이파이 최악.",
   },
   {
+    icon: "📶",
     title: "통신",
     content:
       "ByteSIM 3일 무제한 플랜 일본 도착 직후 활성화, 4일차 아침부터 오프라인. 72시간이 아니라 자정으로 끊는듯. 카운팅 방식 이상하니 딱 맞추지 말 것. 바이트심 홍콩 회사로 보안 리스크 있고 LLM 서비스 차단 위험가능성. 기대 이하 퀄리티 대비 오버프라이스. 이지이심 등 다른 대안 모색할 것. (이지이심 1기가 1일권 1,300원에 해결. 그러나 앱 설치 안하면 불안정하고 설치해도 잘 안 터짐)",
   },
   {
+    icon: "🕒",
     title: "업장 이용",
     content:
       "가게 클로징 시간 확인 미비. 그리고 담배 가게의 경우 예정보다 일찍 닫음. 라멘단보, 스테이크88, 시야와세팬케익 등 웨이팅이 길어지는 것을 일정에 제대로 반영하지 못하였음. 다만 이츠데모아사고항이나 얏빠리스테이크 등 신속히 대안 실행함.",
   },
   {
+    icon: "🛍️",
     title: "쇼핑",
     content:
       "에어사이드 면세점은 인기 상품 구비하고 있으면서도 명품 위주, 면세가 적용 가능. 다만 단가를 올려 국내선 면세점보다 더 비싼 것 같음. 실수는 아니지만 고려사항이라 기재.",
   },
   {
+    icon: "💳",
     title: "결제",
     content:
       "트래블로그 카드 인출 안돼서 GLN 출금하였으나 하나머니가 아닌 하나은행 잔고 요구해 비싼 환율로 강제 환전.",
   },
   {
+    icon: "📱",
     title: "앱이용",
     content:
       "국내 이심 플랜 비활성화 상태에서 본인인증 요구 문제. 삼성폰은 더블이심 지원 안함. 본인인증 해결하였으나 우버 택시 프로모션 전부 소멸. 우버앱 예수금 환불이 실결제를 선행하지 않아 일시적 이중결제, 잔고 부족 상태에서 대금 2배 결제 → 역시 비싼 환율로 강제 자동환전.",
@@ -902,101 +911,165 @@ export default function App() {
         />
 
         {panel === "actual" && (
-          <div className="fi" style={{ ...cardStyle, marginBottom: 7 }}>
-            <div style={{ marginBottom: 16 }}>
+          <div className="fi" style={{ ...cardStyle, marginBottom: 7, padding: "20px 16px" }}>
+            <div style={{ marginBottom: 24 }}>
               <h3
                 style={{
-                  fontSize: 13,
-                  fontWeight: 700,
-                  marginBottom: 10,
+                  fontSize: 14,
+                  fontWeight: 800,
+                  marginBottom: 16,
                   color: "#E8654A",
-                  borderLeft: "3px solid #E8654A",
-                  paddingLeft: 8,
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 8,
                 }}
               >
-                📅 실제 타임라인
+                <span style={{ fontSize: 18 }}>📅</span> 실제 타임라인 기록
               </h3>
-              {ACTUAL_ITINERARY.map((ad, i) => (
-                <div key={i} style={{ marginBottom: 14 }}>
-                  <div
-                    style={{
-                      fontSize: 11,
-                      fontWeight: 700,
-                      background: "#FDF2F0",
-                      padding: "3px 8px",
-                      borderRadius: 4,
-                      display: "inline-block",
-                      marginBottom: 6,
-                    }}
-                  >
-                    Day {ad.day.split("/")[1]} ({ad.day})
-                  </div>
-                  {ad.items.map((item, j) => (
+              
+              <div style={{ position: "relative", paddingLeft: 12 }}>
+                {/* Vertical Line */}
+                <div style={{
+                  position: "absolute",
+                  left: 4,
+                  top: 8,
+                  bottom: 8,
+                  width: 2,
+                  background: "linear-gradient(to bottom, #E8654A30, #E8654A10)",
+                  borderRadius: 1
+                }} />
+
+                {ACTUAL_ITINERARY.map((ad, i) => (
+                  <div key={i} style={{ marginBottom: 20, position: "relative" }}>
+                    {/* Day Marker */}
+                    <div style={{
+                      position: "absolute",
+                      left: -12,
+                      top: 4,
+                      width: 10,
+                      height: 10,
+                      borderRadius: "50%",
+                      background: "#E8654A",
+                      border: "3px solid #FFF",
+                      boxShadow: "0 0 0 1px #E8654A30"
+                    }} />
+                    
                     <div
-                      key={j}
                       style={{
-                        fontSize: 10.5,
-                        color: "#4A4540",
-                        marginBottom: 3,
-                        display: "flex",
-                        gap: 6,
+                        fontSize: 11,
+                        fontWeight: 800,
+                        color: "#E8654A",
+                        marginBottom: 8,
+                        letterSpacing: "0.5px"
                       }}
                     >
-                      <span style={{ color: "#E8654A", fontWeight: 700 }}>
-                        •
-                      </span>
-                      <span>{item}</span>
+                      DAY {ad.day.split("/")[1]} <span style={{ opacity: 0.6, fontWeight: 400 }}>({ad.day})</span>
                     </div>
-                  ))}
-                </div>
-              ))}
+                    
+                    <div style={{
+                      background: "#FDF2F0",
+                      borderRadius: 10,
+                      padding: "12px",
+                      border: "1px solid #E8654A15"
+                    }}>
+                      {ad.items.map((item, j) => {
+                        const [time, ...rest] = item.split(" ");
+                        const hasTime = /^\d{2}:\d{2}$/.test(time);
+                        return (
+                          <div
+                            key={j}
+                            style={{
+                              fontSize: 10.5,
+                              color: "#4A4540",
+                              marginBottom: j === ad.items.length - 1 ? 0 : 6,
+                              display: "flex",
+                              gap: 8,
+                              lineHeight: 1.5
+                            }}
+                          >
+                            {hasTime ? (
+                              <>
+                                <span style={{ fontWeight: 700, color: "#E8654A", minWidth: "35px", flexShrink: 0 }}>{time}</span>
+                                <span style={{ fontWeight: 500 }}>{rest.join(" ")}</span>
+                              </>
+                            ) : (
+                              <span style={{ fontWeight: 500 }}>{item}</span>
+                            )}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
 
-            <div style={{ borderTop: "1px solid #EEE", paddingTop: 16 }}>
+            <div style={{ borderTop: "2px dashed #EEE", paddingTop: 20 }}>
               <h3
                 style={{
-                  fontSize: 13,
-                  fontWeight: 700,
-                  marginBottom: 12,
+                  fontSize: 14,
+                  fontWeight: 800,
+                  marginBottom: 16,
                   color: "#2B7A9B",
-                  borderLeft: "3px solid #2B7A9B",
-                  paddingLeft: 8,
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 8,
                 }}
               >
-                📝 여행 회고 (Diffs)
+                <span style={{ fontSize: 18 }}>📝</span> 여행 회고 (Post-Trip Diffs)
               </h3>
-              {POST_TRIP_REVIEWS.map((review, i) => (
-                <div
-                  key={i}
-                  style={{
-                    background: "#F8F9FA",
-                    padding: "10px",
-                    borderRadius: 8,
-                    marginBottom: 8,
-                    border: "1px solid #F0F1F2",
-                  }}
-                >
+              
+              <div style={{ display: "grid", gap: 10 }}>
+                {POST_TRIP_REVIEWS.map((review, i) => (
                   <div
+                    key={i}
                     style={{
-                      fontSize: 11,
-                      fontWeight: 700,
-                      color: "#2B7A9B",
-                      marginBottom: 4,
+                      background: "#FFF",
+                      padding: "12px",
+                      borderRadius: 12,
+                      border: "1px solid #EAECEF",
+                      boxShadow: "0 2px 4px rgba(0,0,0,0.02)",
+                      display: "flex",
+                      gap: 12
                     }}
                   >
-                    {review.title}
+                    <div style={{
+                      width: 36,
+                      height: 36,
+                      borderRadius: 10,
+                      background: "#F0F4F8",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      fontSize: 18,
+                      flexShrink: 0
+                    }}>
+                      {review.icon}
+                    </div>
+                    <div>
+                      <div
+                        style={{
+                          fontSize: 11.5,
+                          fontWeight: 800,
+                          color: "#2B7A9B",
+                          marginBottom: 4,
+                        }}
+                      >
+                        {review.title}
+                      </div>
+                      <div
+                        style={{
+                          fontSize: 10.5,
+                          color: "#5A5550",
+                          lineHeight: 1.6,
+                        }}
+                      >
+                        {review.content}
+                      </div>
+                    </div>
                   </div>
-                  <div
-                    style={{
-                      fontSize: 10,
-                      color: "#5A5550",
-                      lineHeight: 1.6,
-                    }}
-                  >
-                    {review.content}
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         )}
