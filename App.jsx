@@ -328,6 +328,119 @@ const DAYS = [
   },
 ];
 
+/* ========== ACTUAL ITINERARY & DIFFS ========== */
+const ACTUAL_ITINERARY = [
+  {
+    day: "4/1",
+    items: [
+      "14:00 Delayed departure at ICN",
+      "16:00 Arrived",
+      "17:00 Yui-Rail & Rest",
+      "18:00 Check-In",
+      "19:00 로손 편의점 저녁",
+      "19:30 류보백화점",
+      "20:00 블루씰 아이스크림",
+      "20:30 AW 버거",
+    ],
+  },
+  {
+    day: "4/2",
+    items: [
+      "06:30 기상",
+      "07:40 유투어버스투어 집합",
+      "10:00 코우리섬",
+      "11:00 츄라우미수족관",
+      "13:40 출발",
+      "14:50 만좌모",
+      "16:00 아메리칸빌리지, 젯타버거",
+      "18:30 국제거리 도착, 다이코쿠 쇼핑",
+      "19:30 얏빠리스테이크",
+      "21:00 돈키호테 쇼핑",
+    ],
+  },
+  {
+    day: "4/3",
+    items: [
+      "08:00 준비",
+      "09:30 아침식사, 이츠데모아사고항",
+      "10:00 숙소에서 택시",
+      "10:30 오키나와월드",
+      "13:40 택시 출발",
+      "14:10 코스트코 도착",
+      "15:40 택시 출발",
+      "16:20 숙소 도착",
+      "18:40 국제거리로 출발",
+      "19:00 도착, 전부 닫아서 원하는 것 못 샀음(파이프 및 35커피 원두)",
+      "20:00 얏빠리스테이크 2차",
+      "21:00 돈키호테 쇼핑(오키나와 라이스 위스키, 산토리 올드 위스키 5600엔) 및 택시 귀가",
+      "21:10 로손에서 오비맥주, 오키나와소바면 등 구매",
+    ],
+  },
+  {
+    day: "4/4",
+    items: [
+      "9:40 이츠데모아사고항 유시두부, 타코라이스 아침식사",
+      "10:57 TK02: 나하상업고 → 우미카지 테라스",
+      "11:20 우미카지 테라스 도착, Sunroom sweets에서 쉬폰 케익 등으로 어머니 생신 축하",
+      "12:00 옆 햄버거 집에서 타코, 치킨버거",
+      "13:15 TK02 → 공항 (우천으로 예정 대비 30분 일찍 탑승)",
+      "14:00 국내선 면세점 쇼핑",
+      "14:45 수속",
+      "15:30 국제선 진입",
+      "16:45 (17:30) 지연 출발",
+      "19:30 도착",
+    ],
+  },
+];
+
+const POST_TRIP_REVIEWS = [
+  {
+    title: "리서치 세부사항",
+    content:
+      "리얼월드 변수 및 데이터 반영이 필수인 관계로 현장 리서치는 불가피, 다만 터미널 버스 이용 방법 등 더 세부적으로 리서치 했으면 현장 리서치 피로도가 덜 했을 것. Gemini 가이드와 실제 현장 간의 차이는 가짜뉴스 수준으로 상당함.",
+  },
+  {
+    title: "이정표",
+    content:
+      "큰틀 마련 기여했으나 실행력 과대평가로 일부 일정 삭제. 예산은 오히려 남아서 과소비 없었음. 딱 맞추기보다 쿠션 활용해야함.",
+  },
+  {
+    title: "소지품",
+    content:
+      "옷은 최소로 챙겨 한 벌 당 이틀 정도로 적당히 불편할 정도로 딱 맞춰 공간 확보. 우비는 우천 시에 한 번 사용. 핸드크림, 파이프 담배, 샌들은 전혀 활용하지 못하였으며 백팩에 불쾌한 담배냄새. 캐리어 소지로 돌아갈 때 기념품 수납 수월. 수영복 없어 호텔 인피니티풀 참여 못함.",
+  },
+  {
+    title: "유심 활성화",
+    content:
+      "유심 미리 인천에서 활성화 안해서 입국 심사 시 곤란해짐. 나하 공항 와이파이 최악.",
+  },
+  {
+    title: "통신",
+    content:
+      "ByteSIM 3일 무제한 플랜 일본 도착 직후 활성화, 4일차 아침부터 오프라인. 72시간이 아니라 자정으로 끊는듯. 카운팅 방식 이상하니 딱 맞추지 말 것. 바이트심 홍콩 회사로 보안 리스크 있고 LLM 서비스 차단 위험가능성. 기대 이하 퀄리티 대비 오버프라이스. 이지이심 등 다른 대안 모색할 것. (이지이심 1기가 1일권 1,300원에 해결. 그러나 앱 설치 안하면 불안정하고 설치해도 잘 안 터짐)",
+  },
+  {
+    title: "업장 이용",
+    content:
+      "가게 클로징 시간 확인 미비. 그리고 담배 가게의 경우 예정보다 일찍 닫음. 라멘단보, 스테이크88, 시야와세팬케익 등 웨이팅이 길어지는 것을 일정에 제대로 반영하지 못하였음. 다만 이츠데모아사고항이나 얏빠리스테이크 등 신속히 대안 실행함.",
+  },
+  {
+    title: "쇼핑",
+    content:
+      "에어사이드 면세점은 인기 상품 구비하고 있으면서도 명품 위주, 면세가 적용 가능. 다만 단가를 올려 국내선 면세점보다 더 비싼 것 같음. 실수는 아니지만 고려사항이라 기재.",
+  },
+  {
+    title: "결제",
+    content:
+      "트래블로그 카드 인출 안돼서 GLN 출금하였으나 하나머니가 아닌 하나은행 잔고 요구해 비싼 환율로 강제 환전.",
+  },
+  {
+    title: "앱이용",
+    content:
+      "국내 이심 플랜 비활성화 상태에서 본인인증 요구 문제. 삼성폰은 더블이심 지원 안함. 본인인증 해결하였으나 우버 택시 프로모션 전부 소멸. 우버앱 예수금 환불이 실결제를 선행하지 않아 일시적 이중결제, 잔고 부족 상태에서 대금 2배 결제 → 역시 비싼 환율로 강제 자동환전.",
+  },
+];
+
 const CC = {
   식사: "#E8654A",
   관광: "#2B7A9B",
@@ -775,6 +888,115 @@ export default function App() {
                 · 국제거리 도보 15분 · 류보백화점(투어집합) 도보 10분
                 <br />· 마키시 시장 도보 15분 · 야키니쿠 8곳 도보 4~18분
               </div>
+            </div>
+          </div>
+        )}
+
+        {/* --- ACTUAL ITINERARY --- */}
+        <PanelBtn
+          active={panel === "actual"}
+          onClick={() => tog("actual")}
+          color="#E8654A"
+          label="📍 실제 이동 경로 & 회고"
+          sub="Day 1-4 실제 기록"
+        />
+
+        {panel === "actual" && (
+          <div className="fi" style={{ ...cardStyle, marginBottom: 7 }}>
+            <div style={{ marginBottom: 16 }}>
+              <h3
+                style={{
+                  fontSize: 13,
+                  fontWeight: 700,
+                  marginBottom: 10,
+                  color: "#E8654A",
+                  borderLeft: "3px solid #E8654A",
+                  paddingLeft: 8,
+                }}
+              >
+                📅 실제 타임라인
+              </h3>
+              {ACTUAL_ITINERARY.map((ad, i) => (
+                <div key={i} style={{ marginBottom: 14 }}>
+                  <div
+                    style={{
+                      fontSize: 11,
+                      fontWeight: 700,
+                      background: "#FDF2F0",
+                      padding: "3px 8px",
+                      borderRadius: 4,
+                      display: "inline-block",
+                      marginBottom: 6,
+                    }}
+                  >
+                    Day {ad.day.split("/")[1]} ({ad.day})
+                  </div>
+                  {ad.items.map((item, j) => (
+                    <div
+                      key={j}
+                      style={{
+                        fontSize: 10.5,
+                        color: "#4A4540",
+                        marginBottom: 3,
+                        display: "flex",
+                        gap: 6,
+                      }}
+                    >
+                      <span style={{ color: "#E8654A", fontWeight: 700 }}>
+                        •
+                      </span>
+                      <span>{item}</span>
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
+
+            <div style={{ borderTop: "1px solid #EEE", paddingTop: 16 }}>
+              <h3
+                style={{
+                  fontSize: 13,
+                  fontWeight: 700,
+                  marginBottom: 12,
+                  color: "#2B7A9B",
+                  borderLeft: "3px solid #2B7A9B",
+                  paddingLeft: 8,
+                }}
+              >
+                📝 여행 회고 (Diffs)
+              </h3>
+              {POST_TRIP_REVIEWS.map((review, i) => (
+                <div
+                  key={i}
+                  style={{
+                    background: "#F8F9FA",
+                    padding: "10px",
+                    borderRadius: 8,
+                    marginBottom: 8,
+                    border: "1px solid #F0F1F2",
+                  }}
+                >
+                  <div
+                    style={{
+                      fontSize: 11,
+                      fontWeight: 700,
+                      color: "#2B7A9B",
+                      marginBottom: 4,
+                    }}
+                  >
+                    {review.title}
+                  </div>
+                  <div
+                    style={{
+                      fontSize: 10,
+                      color: "#5A5550",
+                      lineHeight: 1.6,
+                    }}
+                  >
+                    {review.content}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         )}
